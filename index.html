@@ -3,10 +3,6 @@
   <head>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript"src="script.js"></script>   
 <link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="UTF-8">
     <title>Battle.io</title>
@@ -31,7 +27,8 @@
    
  </div>
   <div class="row">
-    
+  <section id="plataforma">
+  </section>
   <div id="login-overlay" class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -60,9 +57,12 @@
                                   </label>
                                   <p class="help-block">(if this is a private computer)</p>
                               </div>
-                              <button type="submit" class="btn btn-success btn-block">Login</button>
-                              <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>
+                              <button  type="submit" class="btn btn-success btn-block">Login</button>
+                              <a href="#" class="btn btn-default btn-block">Help to login</a>
+							  
                           </form>
+						  <button class="btn btn-success btn-block" id="boton" >Out</button>
+						  <button class="btn btn-success btn-block" id="mapa" >Mapa</button>
                       </div>
                   </div>
                   <div class="col-xs-6 col-md-6">
@@ -84,7 +84,8 @@
  </div>
 </div>
   </body>
-  <script type="text/javascript"src="/socket.io/socket.io.js"></script>
-  <script type="text/javascript"src="script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript"src="script.js"></script>  
+  <script type="text/javascript"src="/socket.io/socket.io.js"></script> 
 </html>
