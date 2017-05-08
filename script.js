@@ -46,4 +46,12 @@ $( document ).ready(function() {
 		$("#plataforma").append(data);
 	});
 	
+	$("#boton").on("click",function(){
+		var jugadorColor=$("#color").val();
+		var jugadorBorde;
+		
+		
+		
+	});
+	
 });
