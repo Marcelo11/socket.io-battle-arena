@@ -17,4 +17,12 @@ io.on("connection",function(socket){
 		io.sockets.emit("posicionado",data);
 	});
 	
+	socket.on("crear",function(data){
+		io.sockets.emit("creado",data);
+	});
+	
+	socket.on("mover",function(data){
+		io.sockets.emit("moviendo",data);
+	});
+	
 });
