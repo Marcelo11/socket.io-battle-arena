@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	var socket=io.connect();
 	var txtMen = $("#txtMensaje");
 	var color = $("#color");
+	var eliminado;
 	
 	$("#boton").on("click",function(){
 		$("#login-overlay").slideUp();
@@ -34,7 +35,7 @@ $( document ).ready(function() {
 	 color:col
 	}
 	
-	var bolitas="<div id='"+i+"' class='bolita' type='bolita' name='bolita' style='background-color:"+posBol.color+";left:"+posBol.left+"px;top:"+posBol.top+"px'>"+i+"</div>"
+	var bolitas="<div id='bolita"+i+"' class='bolita' type='bolita' name='bolita' style='background-color:"+posBol.color+";left:"+posBol.left+"px;top:"+posBol.top+"px'>"+i+"</div>"
 
 	socket.emit("posicionar",bolitas);
 	
@@ -44,6 +45,42 @@ $( document ).ready(function() {
 	
 	socket.on("posicionado",function(data){
 		$("#plataforma").append(data);
+		
+		$("#plataforma div").on("mousemove",hacer);
+	});
+	
+	function hacer(){
+		eliminado=$(this);
+		var $div1=$("#"+$(txtMen).val());
+		
+		var x1 = $div1.offset().left;
+		var y1 = $div1.offset().top;
+		var h1 = $div1.outerHeight(true);
+		var w1 = $div1.outerWidth(true);
+		var b1 = y1 + h1;
+		var r1 = x1 + w1;
+		var x2 = $(this).offset().left;
+		var y2 = $(this).offset().top;
+		var h2 = $(this).outerHeight(true);
+		var w2 = $(this).outerWidth(true);
+		var b2 = y2 + h2;
+		var r2 = x2 + w2;
+		
+		if(b1 < y2|| y1 > b2|| r1 < x2 || x1> r2){ return false};
+		
+		$(eliminado).remove();
+		
+		var obj={
+			eli:$(eliminado).text()
+		}
+		
+		socket.emit("eliminar",obj);
+			
+		
+	}
+	
+	socket.on("eliminado",function(data){
+		$("#bolita" + data.eli).remove();
 	});
 	
 	$("#boton").on("click",function(){

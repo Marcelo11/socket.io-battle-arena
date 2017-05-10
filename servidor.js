@@ -25,4 +25,8 @@ io.on("connection",function(socket){
 		io.sockets.emit("moviendo",data);
 	});
 	
+	socket.on("eliminar",function(data){
+		io.sockets.emit("eliminado",data);
+	});
+	
 });
